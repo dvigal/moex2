@@ -1,7 +1,19 @@
 
-## Основные возможности
+# Обзор MOEX2
 
 Первичное назначение библиотеки - функции взаимодействия с информационно-статистическим сервером Московской Биржи (ИСС / ISS).
+
+
+
+
+## Функции
+### Реализованные
+* Запросы к MOEX ISS
+    * Синхронные запросы
+    * Асинхронные запросы
+    * Преобразование ответа от MOEX ISS в Pandas DataFrame
+### В планах
+TBD
 
 
 ## Начало работы
@@ -12,12 +24,12 @@
 
 ### Установка
 ```
-pip install moex-iss
+pip install moex2
 ```
 
-### Примеры использования
+## Примеры использования
 
-#### Получение глобальных справочников ISS
+### Получение глобальных справочников ISS
 [/iss/index](https://iss.moex.com/iss/reference/28)
 ```python
 moex = Moex()
@@ -25,7 +37,7 @@ iss_data = moex.iss().index().req().fetch()
 iss_data.as_pandas()
 ```
 
-#### Получение списка рынков
+### Получение списка рынков
 [/iss/engines/[engine]/markets](https://iss.moex.com/iss/reference/42)
 ```python
 moex = Moex()
@@ -33,7 +45,7 @@ iss_data = moex.iss().engines().engine('stock').markets().req().fetch()
 iss_data.as_pandas()
 ```
 
-#### Получение истории по одной бумаге на рынке за интервал дат
+### Получение истории по одной бумаге на рынке за интервал дат
 [/iss/history/engines/[engine]/markets/[market]/securities/[security]](https://iss.moex.com/iss/reference/63)
 ```python
 moex = Moex()
@@ -62,8 +74,8 @@ iss_data.as_pandas()
 - [x] [/iss/engines/[engine]](https://iss.moex.com/iss/reference/41)
 - [x] [/iss/history/engines/[engine]/markets/[market]/sessions](https://iss.moex.com/iss/reference/811)
 - [x] [/iss/history/engines/[engine]/markets/[market]/sessions/[session]/securities](https://iss.moex.com/iss/reference/813)
-- [x] [/iss/engines/[engine]/markets/[market]/.*?orderbook/columns](https://iss.moex.com/iss/reference/98)
 - [x] [/iss/history/engines/[engine]/markets/[market]/sessions/[session]/securities/[security]](https://iss.moex.com/iss/reference/817)
+- [x] [/iss/engines/[engine]/markets/[market]/.*?orderbook/columns](https://iss.moex.com/iss/reference/98)
 - [x] [/iss/history/engines/[engine]/markets/[market]/session/[session]/boardgroups/[boardgroup]/securities](https://iss.moex.com/iss/reference/825)
 - [x] [/iss/history/engines/[engine]/markets/[market]/sessions/[session]/boardgroups/[boardgroup]/securities/[security]](https://iss.moex.com/iss/reference/819)
 - [x] [/iss/history/engines/[engine]/markets/[market]/sessions/[session]/boards/[board]/securities](https://iss.moex.com/iss/reference/821)
@@ -180,4 +192,16 @@ iss_data.as_pandas()
 - [x] [/iss/analyticalproducts/futoi/securities](https://iss.moex.com/iss/reference/807)
 - [x] [/iss/analyticalproducts/futoi/securities/[security]](https://iss.moex.com/iss/reference/809)
 
-## План развития
+
+
+
+
+## Обратная связь
+
+Открыт для обратной связи. Буду рад ответить на вопросы, замечания и предложения. 
+Связаться со мной можно написав на электронную почту [free.dvig@gmail.com](mailto:free.dvig@gmail.com) или [Telegram](https://t.me/dvig_al)
+
+
+## Лицензия
+Александр Литвинов (c). Все права защищены.
+Распростроняется по лиценции [MIT](LICENSE).
