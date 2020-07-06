@@ -34,9 +34,10 @@ pip install moex2
 [/iss/index](https://iss.moex.com/iss/reference/28)
 ```python
 moex = Moex()
-iss_data = moex.iss().index().req().fetch()
+iss_data = moex.iss().index().req(**{'iss.only':'engines'}).fetch()
 iss_data.as_pandas()
 ```
+![](https://storage.yandexcloud.net/images-moex/moex_iss_index_engines.png)
 
 ### Получение списка рынков
 [/iss/engines/[engine]/markets](https://iss.moex.com/iss/reference/42)
@@ -45,6 +46,8 @@ moex = Moex()
 iss_data = moex.iss().engines().engine('stock').markets().req().fetch()
 iss_data.as_pandas()
 ```
+![](https://storage.yandexcloud.net/images-moex/moex_iss_markets.png)
+
 ### Получение истории дивидендов по бумаге
 ```python
 moex = Moex()
