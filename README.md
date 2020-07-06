@@ -2,7 +2,7 @@
 # Обзор MOEX2
 
 Первичное назначение библиотеки - функции взаимодействия с информационно-статистическим сервером Московской Биржи (ИСС / ISS).
-(https://storage.yandexcloud.net/images-moex/mscw-xchng-rgb-rus.png)
+![](https://storage.yandexcloud.net/images-moex/mscw-xchng-rgb-rus.png)
 
 
 
