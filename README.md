@@ -1,7 +1,8 @@
 
 # Обзор MOEX2
 
-Первичное назначение библиотеки - функции взаимодействия с информационно-статистическим сервером [Московской Биржи](https://www.moex.com/a2193).
+Первичное назначение библиотеки - функции взаимодействия с информационно-статистическим сервером Московской Биржи (ИСС / ISS).
+(https://storage.yandexcloud.net/images-moex/mscw-xchng-rgb-rus.png)
 
 
 
@@ -44,6 +45,21 @@ moex = Moex()
 iss_data = moex.iss().engines().engine('stock').markets().req().fetch()
 iss_data.as_pandas()
 ```
+### Получение истории дивидендов по бумаге
+```python
+moex = Moex()
+iss_data = moex.iss().securities().security('SBER').dividends().req().fetch()
+iss_data.as_pandas()
+```
+![](https://storage.yandexcloud.net/images-moex/moex_iss_dividends.png)
+
+### Получение графика выплаты купонов
+```python
+moex = Moex()
+iss_data = moex.iss().securities().security('RU000A0ZYBS1').bondization().req().fetch()
+iss_data.as_pandas('coupons')
+```
+![](https://storage.yandexcloud.net/images-moex/moex_iss_bondization.png)
 
 ### Получение истории по одной бумаге на рынке за интервал дат
 [/iss/history/engines/[engine]/markets/[market]/securities/[security]](https://iss.moex.com/iss/reference/63)
