@@ -1,0 +1,20 @@
+{
+"engines": {
+	"metadata": {
+		"id": {"type": "int32"},
+		"name": {"type": "string", "bytes": 45, "max_size": 0},
+		"title": {"type": "string", "bytes": 765, "max_size": 0}
+	},
+	"columns": ["id", "name", "title"], 
+	"data": [
+		[1, "stock", "Фондовый рынок и рынок депозитов"],
+		[2, "state", "Рынок ГЦБ (размещение)"],
+		[3, "currency", "Валютный рынок"],
+		[4, "futures", "Срочный рынок"],
+		[5, "commodity", "Товарный рынок"],
+		[6, "interventions", "Товарные интервенции"],
+		[7, "offboard", "ОТС-система"],
+		[9, "agro", "Агро"],
+		[1012, "otc", "OTC Система"]
+	]
+}}
