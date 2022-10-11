@@ -32,9 +32,9 @@ var history = client
 ### Создание экземпляра клиента
 
 ```java
+import ru.exdata.moex.IssClientBuilder;
 
-
-var client=IssClientBuilder.builder().build()
+var client = IssClientBuilder.builder().build()
 ```
 
 ### Конструирование запроса
@@ -226,3 +226,9 @@ var html = issClient.iss().index().format().html().get();
 ```groovy
 implementation  'ru.ex-data:moex2:1.0.0'
 ```
+
+## Донат
+
+Сказать "Спасибо" можно тут [donationalerts](https://www.donationalerts.com/r/dvigal)
+
+![donationalerts](https://static.donationalerts.ru/uploads/qr/7888230/qr_0152b47da309620341cc9d14ca4aaa65.png)
