@@ -32,9 +32,9 @@ var history = client
 ### Создание экземпляра клиента
 
 ```java
+import ru.exdata.moex.IssClientBuilder;
 
-
-var client=IssClientBuilder.builder().build()
+var client = IssClientBuilder.builder().build()
 ```
 
 ### Конструирование запроса
