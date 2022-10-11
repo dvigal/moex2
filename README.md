@@ -209,7 +209,7 @@ var html = issClient.iss().index().format().html().get();
 - [x] [/iss/turnovers](https://iss.moex.com/iss/reference/24)
 - [x] [/iss/turnovers/columns](https://iss.moex.com/iss/reference/100)
 
-Всего 143 методов
+**Всего** 143 метода
 
 ## Подключение к проекту
 
