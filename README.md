@@ -25,7 +25,7 @@ var history = client
         .securities()
         .security("sber")
         .format().json() // Выбираем формат JSON
-        .get(Map.of("from", "2020-01-03", "till", "2020-01-03")); // Задаем параметры и выполняем запрос 
+        .get(Map.of("from", "2020-01-03", "till", "2020-10-03")); // Задаем параметры и выполняем запрос 
 ```
 
 ## Начало работы
@@ -36,10 +36,6 @@ import ru.exdata.moex.IssClientBuilder;
 
 var client = IssClientBuilder.builder().build()
 ```
-
-### Конструирование запроса
-
-
 
 ### Форматы ответов
 Согласно официальной документации, формат в котором необходимо получить данные, указывается в конце основной части
@@ -62,6 +58,48 @@ var csv = issClient.iss().index().format().csv().get();
 
 // html - объект класса String
 var html = issClient.iss().index().format().html().get();
+```
+
+### Конструирование запроса
+
+Рассмотрим работу библиотеки на примере запроса получения истории по одной бумаге на фондовом рынке
+
+#### Параметры запроса
+Параметры передаются в метод ```get```, как экземпляр объекта класса, реализующего интерфейс ```java.lang.Map<K,V>``` 
+```java
+var request = client
+        .iss()
+        .history()
+        .engines()
+        .engine("stock")
+        .markets()
+        .market("shares")
+        .securities()
+        .security("MOEX")
+        .format()
+        .json();
+
+// Экземпляр объекта класса Response
+var response = request.get(Map.of("from", "2022-10-10", "till", "2022-10-14"));
+```
+
+#### Пагинация
+Как следует из документации [MOEX ISS](https://www.moex.com/a2193)
+> Для некоторых запросов также доступен специальный блок данных "cursor",
+указывающий текущую позицию отдаваемый данных относительно всего объёма
+данных, доступных по этому запросу.
+
+Поэтому, для навигации по страницам, нужно использовать объект Qursor,
+получить который можно с помощью метода ```qursor``` у объекта класса ```Response```.
+```java
+response
+    .cursor()
+    .filter(Cursor::hasNext)
+    .map(cursor -> request.get(Map.of(
+            "start", String.valueOf(cursor.nextIndex()),
+            "from", "2020-01-03",
+            "till", "2022-10-03"
+    )));
 ```
 
 ## Поддерживаемые запросы
